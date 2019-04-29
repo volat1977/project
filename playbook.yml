@@ -1,0 +1,8 @@
+---
+- hosts: web
+  become: yes
+  user: ubuntu
+  roles:
+    - role: stuvusIT.zammad
+      zammad_domain: support.postedin.com
+      letsencrypt_email: robbo.clancy@gmail.com
