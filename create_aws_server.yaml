@@ -41,7 +41,7 @@
               cidr_ip: 0.0.0.0/0
         register: basic_firewall
         
-      - name: Launch the new EC2 Instance
+      - name: Launch the new EC2 Instance DB
         ec2:
            group: "{{ security_group }}"
            instance_type: "{{ instance_type }}"
@@ -55,7 +55,7 @@
              Env: Prod
         register: ec2
 
-      - name: Launch the new EC2 Instance
+      - name: Launch the new EC2 Instance Loadbalanser
         ec2:
            group: "{{ security_group }}"
            instance_type: "{{ instance_type }}"
@@ -69,7 +69,7 @@
              Env: Prod
         register: ec2
      
-      - name: Launch the new EC2 Instance
+      - name: Launch the new EC2 Instance APP
         ec2:
            group: "{{ security_group }}"
            instance_type: "{{ instance_type }}"
