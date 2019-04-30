@@ -74,7 +74,7 @@
            group: "{{ security_group }}"
            instance_type: "{{ instance_type }}"
            image: "{{ image }}"
-           wait: true
+           wait_timeout: 120
            region: "{{ region }}"
            keypair: "{{ keypair }}"
            count: "{{ count }}"
@@ -82,8 +82,4 @@
              Name: APP
              Env: Prod
         register: ec2
-
-      - name: "Wait 60s"
-        ec2:
-          wait_timeout: 120       
  
