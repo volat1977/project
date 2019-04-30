@@ -111,4 +111,4 @@
                       host={{ item.public_ip }} 
                       port=22 
                       state=started
-        ith_items: '{{ ec2.instances }}'  
+        with_items: '{{ ec2.instances }}'  
