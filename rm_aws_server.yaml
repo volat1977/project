@@ -14,13 +14,13 @@
 
     # Task that will be used to Launch/Create an EC2 Instance
     tasks:
-      - name: " Delete instanse"
-        ec2:
-          state: running
-          wait: True 
-          region: "{{ region }}"
-          instance_tags:
-            Env: Prod
+#      - name: " Delete instanse"
+#        ec2:
+#          state: running
+#          wait: True 
+#          region: "{{ region }}"
+#          instance_tags:
+#            Env: Prod
       # Task that will be used to Launch/Create an EC2 Instance
     
       - name: " Delete instanse"
@@ -32,9 +32,9 @@
             Env: Prod
 
 
-      - name: "Delete group by its id"
-        local_action:
-          module: ec2_group
-          name: "{{ security_group }}"
-          state: absent
+#      - name: "Delete group by its id"
+#        local_action:
+#          module: ec2_group
+#          name: "{{ security_group }}"
+#          state: absent
 
