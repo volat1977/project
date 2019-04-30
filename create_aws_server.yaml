@@ -6,7 +6,7 @@
     # Necessary Variables for creating/provisioning the EC2 Instance
     vars:
       instance_type: t2.micro
-      security_group: nodejs # Change the security group name here
+      security_group: project # Change the security group name here
       image: ami-07dc734dc14746eab # This is an AMI i created myself
       keypair: lesson # This is one of my keys that i already have in AWS
       region: eu-west-2 # Change the Region
