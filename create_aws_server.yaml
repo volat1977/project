@@ -6,7 +6,7 @@
     # Necessary Variables for creating/provisioning the EC2 Instance
     vars:
       instance_type: t2.micro
-      security_group: project # Change the security group name here
+      security_group: test # Change the security group name here
       image: ami-07dc734dc14746eab # This is an AMI i created myself
       keypair: lesson # This is one of my keys that i already have in AWS
       region: eu-west-2 # Change the Region
@@ -55,6 +55,14 @@
              Env: Prod
         register: ec2
 
+       - name: Add the newly created EC2 instance(s) to the local host group (located inside the directory)
+        local_action: lineinfile
+                      dest="hosts"
+                      regexp={{ item.public_ip }}
+                      insertafter="[webserver]" line={{ item.public_ip }}
+        with_items: '{{ ec2.instances }}'
+ 
+
       - name: Launch the new EC2 Instance Loadbalanser
         ec2:
            group: "{{ security_group }}"
@@ -68,6 +76,14 @@
              Name: Loadbalanser
              Env: Prod
         register: ec2
+
+      - name: Add the newly created EC2 instance(s) to the local host group (located inside the directory)
+        local_action: lineinfile
+                      dest="hosts"
+                      regexp={{ item.public_ip }}
+                      insertafter="[webserver]" line={{ item.public_ip }}
+        with_items: '{{ ec2.instances }}'
+  
      
       - name: Launch the new EC2 Instance APP
         ec2:
@@ -85,7 +101,7 @@
 
       - name: Add the newly created EC2 instance(s) to the local host group (located inside the directory)
         local_action: lineinfile 
-                      dest="./inventories/hosts" 
+                      dest="hosts" 
                       regexp={{ item.public_ip }} 
                       insertafter="[webserver]" line={{ item.public_ip }}
         with_items: '{{ ec2.instances }}'
@@ -95,4 +111,4 @@
                       host={{ item.public_ip }} 
                       port=22 
                       state=started
-        with_items: '{{ ec2.instances }}'  
+        ith_items: '{{ ec2.instances }}'  
