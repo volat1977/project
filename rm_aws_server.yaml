@@ -1,0 +1,40 @@
+---
+  - name: Provision an EC2 Instance
+    hosts: localhost
+    connection: local
+    tags: provisioning
+    # Necessary Variables for creating/provisioning the EC2 Instance
+    vars:
+      instance_type: t2.micro
+      security_group: nodejs # Change the security group name here
+      image: ami-07dc734dc14746eab # This is an AMI i created myself
+      keypair: lesson # This is one of my keys that i already have in AWS
+      region: eu-west-2 # Change the Region
+      count: 1
+
+    # Task that will be used to Launch/Create an EC2 Instance
+    tasks:
+      - name: " Delete instanse"
+        ec2:
+          state: running
+          wait: True 
+          region: "{{ region }}"
+          instance_tags:
+            Env: Prod
+      # Task that will be used to Launch/Create an EC2 Instance
+    
+      - name: " Delete instanse"
+        ec2:
+          state: absent
+          instance_ids: "{{ ec2.instance_ids }}"
+          region: "{{ region }}"
+          instance_tags:
+            Env: Prod
+
+
+      - name: "Delete group by its id"
+        local_action:
+          module: ec2_group
+          name: "{{ security_group }}"
+          state: absent
+
