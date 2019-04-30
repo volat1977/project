@@ -82,4 +82,8 @@
              Name: APP
              Env: Prod
         register: ec2
+
+      - name: "Wait 60s"
+        ec2:
+          wait_timeout: 120       
  
