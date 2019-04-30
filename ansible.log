@@ -1,0 +1,21 @@
+2019-04-30 15:09:11,416 p=16780 u=alex |  ERROR! Syntax Error while loading YAML.
+  but found another document
+
+The error appears to have been in '/home/alex/devops/it-park/project/playbook.yaml': line 2, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+---
+^ here
+
+2019-04-30 15:09:27,201 p=16881 u=alex |  PLAY [Install servers] **************************************************************************************************************************************************
+2019-04-30 15:09:27,223 p=16881 u=alex |  TASK [Gathering Facts] **************************************************************************************************************************************************
+2019-04-30 15:09:30,563 p=16881 u=alex |  ok: [35.178.116.20]
+2019-04-30 15:09:31,036 p=16881 u=alex |  ok: [52.56.151.65]
+2019-04-30 15:09:31,041 p=16881 u=alex |  ok: [3.8.148.208]
+2019-04-30 15:09:31,047 p=16881 u=alex |  PLAY RECAP **************************************************************************************************************************************************************
+2019-04-30 15:09:31,047 p=16881 u=alex |  3.8.148.208                : ok=1    changed=0    unreachable=0    failed=0   
+2019-04-30 15:09:31,047 p=16881 u=alex |  35.178.116.20              : ok=1    changed=0    unreachable=0    failed=0   
+2019-04-30 15:09:31,048 p=16881 u=alex |  52.56.151.65               : ok=1    changed=0    unreachable=0    failed=0   

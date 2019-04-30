@@ -83,6 +83,3 @@
              Env: Prod
         register: ec2
 
-      - name: Wait  to come up
-        local_action: wait_for 
-                      timeout=120 
