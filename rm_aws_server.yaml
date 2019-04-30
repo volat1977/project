@@ -14,7 +14,7 @@
 
     # Task that will be used to Launch/Create an EC2 Instance
     tasks:
-#      - name: " Delete instanse"
+#      - name: " Run instanse"
 #        ec2:
 #          state: running
 #          wait: True 
