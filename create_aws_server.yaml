@@ -83,6 +83,6 @@
              Env: Prod
         register: ec2
 
-      - name: Wait for SSH to come up
+      - name: Wait  to come up
         local_action: wait_for 
-                      delay=300 
+                      delay=120 
