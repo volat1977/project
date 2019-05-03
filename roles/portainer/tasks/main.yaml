@@ -5,6 +5,6 @@
   # tasks:
 - name: Start a container
   include: docker.yaml
-  when: hosts == tag_Name_Portainer
- # when: ansible_nodename == "ip-172-31-22-196"
+ # when: hosts == tag_Name_Portainer
+  when: ansible_nodename == "ip-172-31-28-135"
  
