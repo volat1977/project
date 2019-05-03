@@ -9,7 +9,7 @@
     - name: Start a container
       docker_container:
         name: game
-        image: alexwhen/docker-2048
+        image: volat/game-2048:3
         state: started
         restart: yes
         ports:
