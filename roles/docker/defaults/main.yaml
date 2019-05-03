@@ -8,7 +8,8 @@ apt_docker:
   - build-essential
   - git
   - gnupg-agent
-  - python-pip  
+  - python-pip
+     
 
 
 
