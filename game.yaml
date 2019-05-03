@@ -1,0 +1,26 @@
+---
+- name:   Install App
+  hosts: tag_Name_APP
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+  tasks:
+       
+    - name: Start a container
+      docker_container:
+        name: game
+        image: alexwhen/docker-2048
+        state: started
+        restart: yes
+        ports:
+          - "80:80"
+        volumes: 
+          - "game:/usr/share/nginx/html"
+                
+    - name: Check by url
+      uri:
+        url: http://localhost
+        return_content: yes
+      register: this
+    - debug: 
+        msg: "{{ this }}"      

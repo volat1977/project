@@ -1,0 +1,27 @@
+---
+- name:   Install App
+  hosts: tag_Name_Portainer
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+  tasks:
+
+    - name: Start a container
+      docker_container:
+        name: Portaner
+        image: portainer/portainer
+        state: started
+        restart: yes
+        ports:
+          - "80:9000"
+        volumes: 
+          - "/var/run/docker.sock:/var/run/docker.sock"
+          - "portainer_data:/data portainer/portainer"
+        
+    - name: Check by url
+      uri:
+        url: http://localhost
+        return_content: yes
+      register: this
+    - debug: 
+        msg: "{{ this }}" 

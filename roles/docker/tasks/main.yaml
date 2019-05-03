@@ -40,7 +40,8 @@
 
 - name: Change privilege of docker
   shell: chmod +x /usr/bin/docker
-  become: true
+  become: yes
+  become_method: sudo
 
 - name: "Restart Docker service"
   service: name=docker state=started
@@ -53,7 +54,12 @@
   shell: sudo chmod +x /usr/local/bin/docker-compose 
   become: true  
 
-- name: Install Agent Portainer
-  shell: curl -L https://downloads.portainer.io/agent-stack.yml -o agent-stack.yml && docker stack deploy --compose-file=agent-stack.yml portainer-agent 
-  become: true
-  when: ansible_nodename != "ip-172-31-28-135"
+- name: Docker-py install
+  pip:
+   name: docker-py
+   
+# - name: Install Agent Portainer
+#   shell: curl -L https://downloads.portainer.io/agent-stack.yml -o agent-stack.yml && docker stack deploy --compose-file=agent-stack.yml portainer-agent 
+#   become: yes
+#   become_method: sudo
+#   when: ansible_nodename != "ip-172-31-28-135"
