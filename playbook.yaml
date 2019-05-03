@@ -3,7 +3,8 @@
   hosts: tag_Env_Prod
   become: yes
   become_method: sudo
+  gather_facts: yes
   roles:
-    - pretask
     - docker
-    - containers
+    - portainer
+    - swarm

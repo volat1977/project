@@ -1,0 +1,14 @@
+---
+apt_docker:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - links
+  - software-properties-common
+  - build-essential
+  - git
+  - gnupg-agent
+  - python-pip  
+
+
+

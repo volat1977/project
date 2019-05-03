@@ -1,0 +1,9 @@
+---
+  # hosts: tag_Name_Portainer
+  # become: yes
+  # become_method: sudo
+  # tasks:
+- name: Start a container
+  include: docker.yaml
+  when: ansible_nodename == "ip-172-31-22-196"
+ 

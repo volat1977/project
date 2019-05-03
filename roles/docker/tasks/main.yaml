@@ -1,0 +1,50 @@
+---
+- name: Apt update
+  apt:
+     update_cache: yes
+
+- name: docker. Install packages
+  apt:
+    name: "{{ apt_docker }}"
+    state: latest 
+
+- name: "APT - Add Docker GPG key"
+  apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+
+- name: Add fingerprint
+  become: true
+  shell: sudo apt-key fingerprint 0EBFCD88
+
+- name: "APT - Add Docker repository"
+  apt_repository:
+      repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+      state: present
+      filename: docker
+
+
+- name: Apt update
+  apt:
+    update_cache: yes
+
+- name: install docker
+  apt: 
+    name: docker-ce
+    state: latest
+
+- name: Modify privilege
+  become: true
+  shell: usermod -aG docker $USER
+
+- name: Change privilege of docker
+  shell: chmod +x /usr/bin/docker
+  become: true
+
+- name: "Restart Docker service"
+  service: name=docker state=started
+
+  
+
+   

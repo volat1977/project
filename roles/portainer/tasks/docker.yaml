@@ -1,0 +1,17 @@
+---
+- name: Docker-py install
+  pip:
+   name: docker-py
+  
+- name: Start a container
+  docker_container:
+   name: Portaner
+   image: portainer/portainer
+   state: started
+   restart: yes
+   ports:
+    - "80:9000"
+   volumes: 
+    - "/var/run/docker.sock:/var/run/docker.sock"
+    - "portainer_data:/data portainer/portainer"
+       
