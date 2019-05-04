@@ -1,5 +1,5 @@
 ---
-- name:   Install App
+- name:   Install Portainer
   hosts: tag_Name_Portainer
   become: yes
   become_method: sudo

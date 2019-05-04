@@ -5440,3 +5440,176 @@ ansible.cfg to get rid of this message.
 }
 2019-05-03 19:28:04,450 p=20485 u=alex |  PLAY RECAP *********************************************************************
 2019-05-03 19:28:04,451 p=20485 u=alex |  35.177.93.40               : ok=4    changed=1    unreachable=0    failed=0   
+2019-05-03 20:30:44,110 p=25539 u=alex |  PLAY [Install App] *************************************************************
+2019-05-03 20:30:44,120 p=25539 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-03 20:30:48,615 p=25539 u=alex |  ok: [35.178.199.148]
+2019-05-03 20:30:48,636 p=25539 u=alex |  TASK [Start a container] *******************************************************
+2019-05-03 20:30:53,512 p=25539 u=alex |  changed: [35.178.199.148]
+2019-05-03 20:30:53,544 p=25539 u=alex |  TASK [Check by url] ************************************************************
+2019-05-03 20:30:55,446 p=25539 u=alex |  fatal: [35.178.199.148]: FAILED! => {"changed": false, "content": "", "msg": "Status code was -1 and not [200]: Request failed: <urlopen error [Errno 111] Connection refused>", "redirected": false, "status": -1, "url": "http://localhost"}
+2019-05-03 20:30:55,448 p=25539 u=alex |  	to retry, use: --limit @/home/alex/devops/it-park/project/game.retry
+
+2019-05-03 20:30:55,448 p=25539 u=alex |  PLAY RECAP *********************************************************************
+2019-05-03 20:30:55,448 p=25539 u=alex |  35.178.199.148             : ok=2    changed=1    unreachable=0    failed=1   
+2019-05-03 20:34:25,419 p=27471 u=alex |  PLAY [Install App] *************************************************************
+2019-05-03 20:34:25,430 p=27471 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-03 20:34:30,195 p=27471 u=alex |  ok: [3.8.2.204]
+2019-05-03 20:34:30,228 p=27471 u=alex |  TASK [Start a container] *******************************************************
+2019-05-03 20:34:32,675 p=27471 u=alex |  changed: [3.8.2.204]
+2019-05-03 20:34:32,706 p=27471 u=alex |  TASK [Check by url] ************************************************************
+2019-05-03 20:34:34,717 p=27471 u=alex |  ok: [3.8.2.204]
+2019-05-03 20:34:34,758 p=27471 u=alex |  TASK [debug] *******************************************************************
+2019-05-03 20:34:34,790 p=27471 u=alex |  ok: [3.8.2.204] => {
+    "msg": {
+        "accept_ranges": "bytes", 
+        "cache_control": "max-age=31536000", 
+        "changed": false, 
+        "connection": "close", 
+        "content": "<!DOCTYPE html>\n<html lang=\"en\" ng-app=\"portainer\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Portainer</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"description\" content=\"\">\n  <meta name=\"author\" content=\"Portainer.io\">\n\n  <link rel=\"stylesheet\" href=\"css/app.069dd38e.css\">\n\n  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->\n  <!--[if lt IE 9]>\n  <script src=\"//html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n  <![endif]-->\n\n  <script src=\"js/app.f55ec34c.js\"></script>\n\n  <!-- Fav and touch icons -->\n  <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"ico/apple-touch-icon.png\">\n  <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"ico/favicon-32x32.png\">\n  <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"ico/favicon-16x16.png\">\n  <link rel=\"manifest\" href=\"ico/manifest.json\">\n  <link rel=\"mask-icon\" href=\"ico/safari-pinned-tab.svg\" color=\"#5bbad5\">\n  <link rel=\"shortcut icon\" href=\"ico/favicon.ico\">\n  <meta name=\"msapplication-config\" content=\"ico/browserconfig.xml\">\n  <meta name=\"theme-color\" content=\"#ffffff\">\n</head>\n\n<body ng-controller=\"MainController\">\n  <div id=\"page-wrapper\" ng-class=\"{\n    open: toggle && ['portainer.auth', 'portainer.updatePassword', 'portainer.init.admin', 'portainer.init.endpoint'].indexOf($state.current.name) === -1,\n    nopadding: ['portainer.auth', 'portainer.updatePassword', 'portainer.init.admin', 'portainer.init.endpoint'].indexOf($state.current.name) > -1 || applicationState.loading\n  }\"\n  ng-cloak>\n    <div id=\"sideview\" ui-view=\"sidebar\" ng-if=\"!applicationState.loading\"></div>\n\n    <div id=\"content-wrapper\">\n      <div class=\"page-content\">\n\n        <div class=\"page-wrapper\" ng-if=\"applicationState.loading\">\n          <!-- loading box -->\n          <div class=\"container simple-box\">\n            <div class=\"col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3\">\n              <!-- loading box logo -->\n              <div class=\"row\">\n                <img ng-if=\"logo\" ng-src=\"{{ logo }}\" class=\"simple-box-logo\">\n                <img ng-if=\"!logo\" src=\"images/logo_alt.png\" class=\"simple-box-logo\" alt=\"Portainer\">\n              </div>\n              <!-- !loading box logo -->\n              <!-- panel -->\n              <div class=\"row\" style=\"text-align: center\">\n                Connecting to the Docker endpoint...\n                <i class=\"fa fa-cog fa-spin\" style=\"margin-left: 5px\"></i>\n              </div>\n              <!-- !panel -->\n            </div>\n          </div>\n          <!-- !loading box -->\n        </div>\n\n        <!-- Main Content -->\n        <div id=\"view\" ui-view=\"content\" ng-if=\"!applicationState.loading\"></div>\n\n      </div><!-- End Page Content -->\n    </div><!-- End Content Wrapper -->\n  </div><!-- End Page Wrapper -->\n</body>\n</html>\n", 
+        "content_length": "2804", 
+        "content_type": "text/html; charset=utf-8", 
+        "cookies": {}, 
+        "cookies_string": "", 
+        "date": "Fri, 03 May 2019 17:34:34 GMT", 
+        "failed": false, 
+        "last_modified": "Tue, 05 Mar 2019 04:40:47 GMT", 
+        "msg": "OK (2804 bytes)", 
+        "redirected": false, 
+        "status": 200, 
+        "url": "http://localhost", 
+        "x_content_type_options": "nosniff", 
+        "x_xss_protection": "1; mode=block"
+    }
+}
+2019-05-03 20:34:34,792 p=27471 u=alex |  PLAY RECAP *********************************************************************
+2019-05-03 20:34:34,792 p=27471 u=alex |  3.8.2.204                  : ok=4    changed=1    unreachable=0    failed=0   
+2019-05-03 20:44:37,384 p=28098 u=alex |  PLAY [Install App] *************************************************************
+2019-05-03 20:44:37,397 p=28098 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-03 20:44:41,170 p=28098 u=alex |  ok: [35.178.199.148]
+2019-05-03 20:44:41,188 p=28098 u=alex |  TASK [Start a container] *******************************************************
+2019-05-03 20:44:43,880 p=28098 u=alex |  changed: [35.178.199.148]
+2019-05-03 20:44:43,926 p=28098 u=alex |  TASK [Check by url] ************************************************************
+2019-05-03 20:44:45,900 p=28098 u=alex |  fatal: [35.178.199.148]: FAILED! => {"changed": false, "content": "", "msg": "Status code was -1 and not [200]: Request failed: <urlopen error [Errno 111] Connection refused>", "redirected": false, "status": -1, "url": "http://localhost"}
+2019-05-03 20:44:45,903 p=28098 u=alex |  	to retry, use: --limit @/home/alex/devops/it-park/project/game.retry
+
+2019-05-03 20:44:45,903 p=28098 u=alex |  PLAY RECAP *********************************************************************
+2019-05-03 20:44:45,903 p=28098 u=alex |  35.178.199.148             : ok=2    changed=1    unreachable=0    failed=1   
+2019-05-03 20:46:57,392 p=28387 u=alex |  PLAY [Install App] *************************************************************
+2019-05-03 20:46:57,402 p=28387 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-03 20:47:01,737 p=28387 u=alex |  ok: [35.178.199.148]
+2019-05-03 20:47:01,757 p=28387 u=alex |  TASK [Start a container] *******************************************************
+2019-05-03 20:47:07,037 p=28387 u=alex |  changed: [35.178.199.148]
+2019-05-03 20:47:07,088 p=28387 u=alex |  TASK [Check by url] ************************************************************
+2019-05-03 20:47:09,306 p=28387 u=alex |  ok: [35.178.199.148]
+2019-05-03 20:47:09,348 p=28387 u=alex |  TASK [debug] *******************************************************************
+2019-05-03 20:47:09,380 p=28387 u=alex |  ok: [35.178.199.148] => {
+    "msg": {
+        "accept_ranges": "bytes", 
+        "changed": false, 
+        "connection": "close", 
+        "content": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>2048</title>\n\n  <link href=\"style/main.css\" rel=\"stylesheet\" type=\"text/css\">\n  <link rel=\"shortcut icon\" href=\"favicon.ico\">\n  <link rel=\"apple-touch-icon\" href=\"meta/apple-touch-icon.png\">\n  <link rel=\"apple-touch-startup-image\" href=\"meta/apple-touch-startup-image-640x1096.png\" media=\"(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)\"> <!-- iPhone 5+ -->\n  <link rel=\"apple-touch-startup-image\" href=\"meta/apple-touch-startup-image-640x920.png\"  media=\"(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)\"> <!-- iPhone, retina -->\n  <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n  <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\n\n  <meta name=\"HandheldFriendly\" content=\"True\">\n  <meta name=\"MobileOptimized\" content=\"320\">\n  <meta name=\"viewport\" content=\"width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui\">\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"heading\">\n      <h1 class=\"title\">2048</h1>\n      <div class=\"scores-container\">\n        <div class=\"score-container\">0</div>\n        <div class=\"best-container\">0</div>\n      </div>\n    </div>\n\n    <div class=\"above-game\">\n      <p class=\"game-intro\">Join the numbers and get to the <strong>2048 tile!</strong></p>\n      <a class=\"restart-button\">New Game</a>\n    </div>\n\n    <div class=\"game-container\">\n      <div class=\"game-message\">\n        <p></p>\n        <div class=\"lower\">\n\t        <a class=\"keep-playing-button\">Keep going</a>\n          <a class=\"retry-button\">Try again</a>\n        </div>\n      </div>\n\n      <div class=\"grid-container\">\n        <div class=\"grid-row\">\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n        </div>\n        <div class=\"grid-row\">\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n        </div>\n        <div class=\"grid-row\">\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n        </div>\n        <div class=\"grid-row\">\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n        </div>\n      </div>\n\n      <div class=\"tile-container\">\n\n      </div>\n    </div>\n\n    <p class=\"game-explanation\">\n      <strong class=\"important\">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>\n    </p>\n    <hr>\n    <p>\n    <strong class=\"important\">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href=\"http://git.io/2048\">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.\n    </p>\n    <hr>\n    <p>\n    Created by <a href=\"http://gabrielecirulli.com\" target=\"_blank\">Gabriele Cirulli.</a> Based on <a href=\"https://itunes.apple.com/us/app/1024!/id823499224\" target=\"_blank\">1024 by Veewo Studio</a> and conceptually similar to <a href=\"http://asherv.com/threes/\" target=\"_blank\">Threes by Asher Vollmer.</a>\n    </p>\n  </div>\n\n  <script src=\"js/bind_polyfill.js\"></script>\n  <script src=\"js/classlist_polyfill.js\"></script>\n  <script src=\"js/animframe_polyfill.js\"></script>\n  <script src=\"js/keyboard_input_manager.js\"></script>\n  <script src=\"js/html_actuator.js\"></script>\n  <script src=\"js/grid.js\"></script>\n  <script src=\"js/tile.js\"></script>\n  <script src=\"js/local_storage_manager.js\"></script>\n  <script src=\"js/game_manager.js\"></script>\n  <script src=\"js/application.js\"></script>\n</body>\n</html>\n", 
+        "content_length": "3988", 
+        "content_type": "text/html", 
+        "cookies": {}, 
+        "cookies_string": "", 
+        "date": "Fri, 03 May 2019 17:47:09 GMT", 
+        "etag": "\"5ccc5af1-f94\"", 
+        "failed": false, 
+        "last_modified": "Fri, 03 May 2019 15:14:57 GMT", 
+        "msg": "OK (3988 bytes)", 
+        "redirected": false, 
+        "server": "nginx/1.8.0", 
+        "status": 200, 
+        "url": "http://localhost"
+    }
+}
+2019-05-03 20:47:09,381 p=28387 u=alex |  PLAY RECAP *********************************************************************
+2019-05-03 20:47:09,381 p=28387 u=alex |  35.178.199.148             : ok=4    changed=1    unreachable=0    failed=0   
+2019-05-04 13:10:47,414 p=25048 u=alex |  PLAY [Install App] *************************************************************
+2019-05-04 13:10:47,424 p=25048 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-04 13:10:51,506 p=25048 u=alex |  ok: [35.178.199.148]
+2019-05-04 13:10:51,548 p=25048 u=alex |  TASK [Start a container] *******************************************************
+2019-05-04 13:10:56,199 p=25048 u=alex |  changed: [35.178.199.148]
+2019-05-04 13:10:56,242 p=25048 u=alex |  TASK [Check by url] ************************************************************
+2019-05-04 13:10:58,140 p=25048 u=alex |  fatal: [35.178.199.148]: FAILED! => {"changed": false, "connection": "close", "content": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body bgcolor=\"white\">\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n", "content_length": "162", "content_type": "text/html", "date": "Sat, 04 May 2019 10:10:57 GMT", "msg": "Status code was 404 and not [200]: HTTP Error 404: Not Found", "redirected": false, "server": "nginx", "status": 404, "url": "http://localhost"}
+2019-05-04 13:10:58,143 p=25048 u=alex |  	to retry, use: --limit @/home/alex/devops/it-park/project/game.retry
+
+2019-05-04 13:10:58,143 p=25048 u=alex |  PLAY RECAP *********************************************************************
+2019-05-04 13:10:58,144 p=25048 u=alex |  35.178.199.148             : ok=2    changed=1    unreachable=0    failed=1   
+2019-05-04 14:45:50,467 p=31170 u=alex |  PLAY [Install App] *************************************************************
+2019-05-04 14:45:50,483 p=31170 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-04 14:45:54,925 p=31170 u=alex |  ok: [18.130.191.59]
+2019-05-04 14:45:54,962 p=31170 u=alex |  TASK [Start a container] *******************************************************
+2019-05-04 14:45:59,967 p=31170 u=alex |  changed: [18.130.191.59]
+2019-05-04 14:46:00,017 p=31170 u=alex |  TASK [Check by url] ************************************************************
+2019-05-04 14:46:01,671 p=31170 u=alex |  fatal: [18.130.191.59]: FAILED! => {"changed": false, "connection": "close", "content": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body bgcolor=\"white\">\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n", "content_length": "162", "content_type": "text/html", "date": "Sat, 04 May 2019 11:46:01 GMT", "msg": "Status code was 404 and not [200]: HTTP Error 404: Not Found", "redirected": false, "server": "nginx", "status": 404, "url": "http://localhost"}
+2019-05-04 14:46:01,673 p=31170 u=alex |  	to retry, use: --limit @/home/alex/devops/it-park/project/game.retry
+
+2019-05-04 14:46:01,673 p=31170 u=alex |  PLAY RECAP *********************************************************************
+2019-05-04 14:46:01,673 p=31170 u=alex |  18.130.191.59              : ok=2    changed=1    unreachable=0    failed=1   
+2019-05-04 14:47:33,092 p=31435 u=alex |  PLAY [Install App] *************************************************************
+2019-05-04 14:47:33,100 p=31435 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-04 14:47:35,587 p=31435 u=alex |  ok: [18.130.191.59]
+2019-05-04 14:47:35,605 p=31435 u=alex |  TASK [Start a container] *******************************************************
+2019-05-04 14:47:38,094 p=31435 u=alex |  changed: [18.130.191.59]
+2019-05-04 14:47:38,139 p=31435 u=alex |  TASK [Check by url] ************************************************************
+2019-05-04 14:47:39,965 p=31435 u=alex |  fatal: [18.130.191.59]: FAILED! => {"changed": false, "connection": "close", "content": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body bgcolor=\"white\">\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n", "content_length": "162", "content_type": "text/html", "date": "Sat, 04 May 2019 11:47:39 GMT", "msg": "Status code was 404 and not [200]: HTTP Error 404: Not Found", "redirected": false, "server": "nginx", "status": 404, "url": "http://localhost"}
+2019-05-04 14:47:39,968 p=31435 u=alex |  	to retry, use: --limit @/home/alex/devops/it-park/project/game.retry
+
+2019-05-04 14:47:39,969 p=31435 u=alex |  PLAY RECAP *********************************************************************
+2019-05-04 14:47:39,969 p=31435 u=alex |  18.130.191.59              : ok=2    changed=1    unreachable=0    failed=1   
+2019-05-04 14:48:09,054 p=31521 u=alex |  PLAY [Install App] *************************************************************
+2019-05-04 14:48:09,062 p=31521 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-04 14:48:11,515 p=31521 u=alex |  ok: [18.130.191.59]
+2019-05-04 14:48:11,553 p=31521 u=alex |  TASK [Start a container] *******************************************************
+2019-05-04 14:48:14,190 p=31521 u=alex |  changed: [18.130.191.59]
+2019-05-04 14:48:14,227 p=31521 u=alex |  TASK [Check by url] ************************************************************
+2019-05-04 14:48:16,031 p=31521 u=alex |  fatal: [18.130.191.59]: FAILED! => {"changed": false, "connection": "close", "content": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body bgcolor=\"white\">\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n", "content_length": "162", "content_type": "text/html", "date": "Sat, 04 May 2019 11:48:15 GMT", "msg": "Status code was 404 and not [200]: HTTP Error 404: Not Found", "redirected": false, "server": "nginx", "status": 404, "url": "http://localhost"}
+2019-05-04 14:48:16,034 p=31521 u=alex |  	to retry, use: --limit @/home/alex/devops/it-park/project/game.retry
+
+2019-05-04 14:48:16,034 p=31521 u=alex |  PLAY RECAP *********************************************************************
+2019-05-04 14:48:16,035 p=31521 u=alex |  18.130.191.59              : ok=2    changed=1    unreachable=0    failed=1   
+2019-05-04 14:49:20,667 p=31637 u=alex |  PLAY [Install App] *************************************************************
+2019-05-04 14:49:20,675 p=31637 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-04 14:49:23,140 p=31637 u=alex |  ok: [18.130.191.59]
+2019-05-04 14:49:23,172 p=31637 u=alex |  TASK [Start a container] *******************************************************
+2019-05-04 14:49:28,331 p=31637 u=alex |  changed: [18.130.191.59]
+2019-05-04 14:49:28,368 p=31637 u=alex |  TASK [Check by url] ************************************************************
+2019-05-04 14:49:30,121 p=31637 u=alex |  ok: [18.130.191.59]
+2019-05-04 14:49:30,158 p=31637 u=alex |  TASK [debug] *******************************************************************
+2019-05-04 14:49:30,192 p=31637 u=alex |  ok: [18.130.191.59] => {
+    "msg": {
+        "accept_ranges": "bytes", 
+        "changed": false, 
+        "connection": "close", 
+        "content": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>2048</title>\n\n  <link href=\"style/main.css\" rel=\"stylesheet\" type=\"text/css\">\n  <link rel=\"shortcut icon\" href=\"favicon.ico\">\n  <link rel=\"apple-touch-icon\" href=\"meta/apple-touch-icon.png\">\n  <link rel=\"apple-touch-startup-image\" href=\"meta/apple-touch-startup-image-640x1096.png\" media=\"(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)\"> <!-- iPhone 5+ -->\n  <link rel=\"apple-touch-startup-image\" href=\"meta/apple-touch-startup-image-640x920.png\"  media=\"(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)\"> <!-- iPhone, retina -->\n  <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n  <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\n\n  <meta name=\"HandheldFriendly\" content=\"True\">\n  <meta name=\"MobileOptimized\" content=\"320\">\n  <meta name=\"viewport\" content=\"width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui\">\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"heading\">\n      <h1 class=\"title\">2048</h1>\n      <div class=\"scores-container\">\n        <div class=\"score-container\">0</div>\n        <div class=\"best-container\">0</div>\n      </div>\n    </div>\n\n    <div class=\"above-game\">\n      <p class=\"game-intro\">Join the numbers and get to the <strong>2048 tile!</strong></p>\n      <a class=\"restart-button\">New Game</a>\n    </div>\n\n    <div class=\"game-container\">\n      <div class=\"game-message\">\n        <p></p>\n        <div class=\"lower\">\n\t        <a class=\"keep-playing-button\">Keep going</a>\n          <a class=\"retry-button\">Try again</a>\n        </div>\n      </div>\n\n      <div class=\"grid-container\">\n        <div class=\"grid-row\">\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n        </div>\n        <div class=\"grid-row\">\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n        </div>\n        <div class=\"grid-row\">\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n        </div>\n        <div class=\"grid-row\">\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n          <div class=\"grid-cell\"></div>\n        </div>\n      </div>\n\n      <div class=\"tile-container\">\n\n      </div>\n    </div>\n\n    <p class=\"game-explanation\">\n      <strong class=\"important\">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>\n    </p>\n    <hr>\n    <p>\n    <strong class=\"important\">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href=\"http://git.io/2048\">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.\n    </p>\n    <hr>\n    <p>\n    Created by <a href=\"http://gabrielecirulli.com\" target=\"_blank\">Gabriele Cirulli.</a> Based on <a href=\"https://itunes.apple.com/us/app/1024!/id823499224\" target=\"_blank\">1024 by Veewo Studio</a> and conceptually similar to <a href=\"http://asherv.com/threes/\" target=\"_blank\">Threes by Asher Vollmer.</a>\n    </p>\n  </div>\n\n  <script src=\"js/bind_polyfill.js\"></script>\n  <script src=\"js/classlist_polyfill.js\"></script>\n  <script src=\"js/animframe_polyfill.js\"></script>\n  <script src=\"js/keyboard_input_manager.js\"></script>\n  <script src=\"js/html_actuator.js\"></script>\n  <script src=\"js/grid.js\"></script>\n  <script src=\"js/tile.js\"></script>\n  <script src=\"js/local_storage_manager.js\"></script>\n  <script src=\"js/game_manager.js\"></script>\n  <script src=\"js/application.js\"></script>\n</body>\n</html>\n", 
+        "content_length": "3988", 
+        "content_type": "text/html", 
+        "cookies": {}, 
+        "cookies_string": "", 
+        "date": "Sat, 04 May 2019 11:49:29 GMT", 
+        "etag": "\"55beb557-f94\"", 
+        "failed": false, 
+        "last_modified": "Mon, 03 Aug 2015 00:27:03 GMT", 
+        "msg": "OK (3988 bytes)", 
+        "redirected": false, 
+        "server": "nginx/1.8.0", 
+        "status": 200, 
+        "url": "http://localhost"
+    }
+}
+2019-05-04 14:49:30,194 p=31637 u=alex |  PLAY RECAP *********************************************************************
+2019-05-04 14:49:30,194 p=31637 u=alex |  18.130.191.59              : ok=4    changed=1    unreachable=0    failed=0   
+2019-05-04 15:00:00,090 p=32559 u=alex |  PLAY [Install App] *************************************************************
+2019-05-04 15:00:00,098 p=32559 u=alex |  TASK [Gathering Facts] *********************************************************
+2019-05-04 15:00:03,842 p=32559 u=alex |  ok: [18.130.191.59]
+2019-05-04 15:00:03,882 p=32559 u=alex |  TASK [remove container] ********************************************************
+2019-05-04 15:00:05,611 p=32559 u=alex |  ok: [18.130.191.59]
+2019-05-04 15:00:05,653 p=32559 u=alex |  TASK [Start a container] *******************************************************
+2019-05-04 15:00:07,995 p=32559 u=alex |  changed: [18.130.191.59]
+2019-05-04 15:00:08,018 p=32559 u=alex |  TASK [Check by url] ************************************************************
+2019-05-04 15:00:09,793 p=32559 u=alex |  fatal: [18.130.191.59]: FAILED! => {"changed": false, "connection": "close", "content": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body bgcolor=\"white\">\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n", "content_length": "162", "content_type": "text/html", "date": "Sat, 04 May 2019 12:00:09 GMT", "msg": "Status code was 404 and not [200]: HTTP Error 404: Not Found", "redirected": false, "server": "nginx", "status": 404, "url": "http://localhost"}
+2019-05-04 15:00:09,796 p=32559 u=alex |  	to retry, use: --limit @/home/alex/devops/it-park/project/game.retry
+
+2019-05-04 15:00:09,796 p=32559 u=alex |  PLAY RECAP *********************************************************************
+2019-05-04 15:00:09,797 p=32559 u=alex |  18.130.191.59              : ok=3    changed=1    unreachable=0    failed=1   

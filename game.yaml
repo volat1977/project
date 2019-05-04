@@ -1,21 +1,24 @@
 ---
 - name:   Install App
-  hosts: tag_Name_APP
+  hosts: tag_Name_App
   become: yes
   become_method: sudo
   gather_facts: yes
   tasks:
-       
+    # - name: remove container
+    #   docker_container:
+    #      name: alexwhen/docker-2048
+    #      state: absent 
     - name: Start a container
       docker_container:
         name: game
-        image: volat/game-2048:3
+        image: volat/game-2048
         state: started
         restart: yes
         ports:
           - "80:80"
-        volumes: 
-          - "game:/usr/share/nginx/html"
+       # volumes: 
+       #   - "game:/usr/share/nginx/html"
                 
     - name: Check by url
       uri:
