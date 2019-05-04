@@ -1,2 +1,1 @@
-# ansible-playbook-zammad
-Ansible Playbook - Zammad
+# Ansible  project
