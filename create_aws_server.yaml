@@ -11,7 +11,7 @@
       keypair: lesson # This is one of my keys that i already have in AWS
       region: eu-west-2 # Change the Region
       network_interface: eni-0ee6fabb40bac37d0
-      count: 1
+      count: 2
 
 
     tasks:
@@ -43,35 +43,35 @@
               cidr_ip: 0.0.0.0/0
         register: basic_firewall
         
-      - name: Launch the new EC2 Instance DB
-        ec2:
-           group: "{{ security_group }}"
-           instance_type: "{{ instance_type }}"
-           image: "{{ image }}"
-           wait: true
-           region: "{{ region }}"
-           keypair: "{{ keypair }}"
-           count: "{{ count }}"
-           instance_tags:
-             Name: DB
-             Env: Prod
-          # network_interfaces: "{{network_interface}}" 
-        register: ec2
+      # - name: Launch the new EC2 Instance DB
+      #   ec2:
+      #      group: "{{ security_group }}"
+      #      instance_type: "{{ instance_type }}"
+      #      image: "{{ image }}"
+      #      wait: true
+      #      region: "{{ region }}"
+      #      keypair: "{{ keypair }}"
+      #      count: "{{ count }}"
+      #      instance_tags:
+      #        Name: DB
+      #        Env: Prod
+      #     # network_interfaces: "{{network_interface}}" 
+      #   register: ec2
 
-      - name: Launch the new EC2 Instance Loadbalanser
-        ec2:
-           group: "{{ security_group }}"
-           instance_type: "{{ instance_type }}"
-           image: "{{ image }}"
-           wait: true
-           region: "{{ region }}"
-           keypair: "{{ keypair }}"
-           count: "{{ count }}"
-         #  network_interfaces: "{{network_interface}}"
-           instance_tags:
-             Name: Loadbalanser
-             Env: Prod
-        register: ec2
+      # - name: Launch the new EC2 Instance Loadbalanser
+      #   ec2:
+      #      group: "{{ security_group }}"
+      #      instance_type: "{{ instance_type }}"
+      #      image: "{{ image }}"
+      #      wait: true
+      #      region: "{{ region }}"
+      #      keypair: "{{ keypair }}"
+      #      count: "{{ count }}"
+      #    #  network_interfaces: "{{network_interface}}"
+      #      instance_tags:
+      #        Name: Loadbalanser
+      #        Env: Prod
+      #   register: ec2
 
       - name: Launch the new EC2 Instance App
         ec2:
