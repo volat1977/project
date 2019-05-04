@@ -57,7 +57,7 @@
 - name: Docker-py install
   pip:
    name: docker-py
-   
+
 # - name: Install Agent Portainer
 #   shell: curl -L https://downloads.portainer.io/agent-stack.yml -o agent-stack.yml && docker stack deploy --compose-file=agent-stack.yml portainer-agent 
 #   become: yes
